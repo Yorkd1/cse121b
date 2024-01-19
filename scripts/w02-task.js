@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 let fullName = "David York";
 let currentYear = '2024';
-let profilePicture = 'images/IMG_1022.png';
+let profilePicture = 'images/IMG_1022.jpg';
 
 
 /* Step 3 - Element Variables */
