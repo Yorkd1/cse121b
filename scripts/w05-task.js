@@ -8,12 +8,12 @@ let templeList = [];
 const displayTemples = (templeList) => {
     templeList.forEach(function(temple) {
     const articleElement = document.createElement('article');
-    const h3Element = document.createElement('h3');
-    h3Element.textContent = temple.templeName;
+    const h4Element = document.createElement('h4');
+    h4Element.textContent = temple.templeName;
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', temple.imageUrl);
     imgElement.setAttribute('alt', temple.location);
-    articleElement.appendChild(h3Element);
+    articleElement.appendChild(h4Element);
     articleElement.appendChild(imgElement);
     templesElement.appendChild(articleElement);
 })};
