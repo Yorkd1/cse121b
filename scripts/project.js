@@ -23,28 +23,15 @@ const displayCharacters = (characterList) => {
 /* async getCharacters Function using fetch()*/
 let getCharacters = async () => {
     try {
-        // Fetch character data from the API
         const response = await fetch('https://api.disneyapi.dev/character');
-
-        // Check if the response is successful
-        if (!response.ok) {
-            // If response is not OK, throw an error
+        if (!response.ok) {           
             throw new Error('Failed to fetch characters: ' + response.status);
-        }
-
-        // Parse response body as JSON
-        const data = await response.json();
-
-        // If characterList is not defined, assign an empty array to it
-        characterList = characterList || [];
-
-        // Update characterList
+        }       
+        const data = await response.json();      
+        characterList = characterList || [];        
         characterList = data;
-
-        // Call displayCharacters function to display characters
         displayCharacters(characterList);
     } catch (error) {
-        // Handle errors
         console.error('Error fetching characters:', error.message);
     }
 };
