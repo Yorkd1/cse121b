@@ -6,7 +6,7 @@ let characterList = [];
 
 /* async displayCharacters Function */
 const displayCharacters = (characterList) => {
-    characterList.data.forEach((character)=>{
+    characterList.forEach((character)=>{
     const articleElement = document.createElement('article');
     const h4Element = document.createElement('h4');
     h4Element.textContent = character.name;
@@ -30,7 +30,7 @@ let getCharacters = async () => {
         const data = await response.json();      
         characterList = characterList || [];        
         characterList = data;
-        displayCharacters(characterList);
+        displayCharacters(characterList.data);
     } catch (error) {
         console.error('Error fetching characters:', error.message);
     }
@@ -47,22 +47,19 @@ function filterCharacters(character) {
     const filter = document.getElementById('filtered').value;
     switch(filter) {
         case 'all':
-            displayCharacters(character);
+            displayCharacters(character.data);
             break;
         case 'tvShow':
-            displayCharacters(character.filter(char => char.data.includes('tvShows')));
+            displayCharacters(character.data.filter((char) => char.tvShows.length !=0));
             break;
         case 'videoGame':
-            displayCharacters(character.filter(char => char.data.includes('videoGames')));
+            displayCharacters(character.data.filter(char => char.videoGames.length !=0));
             break;
         case 'film':
-            displayCharacters(character.filter(char => char.data.includes('films')));
-            break;
-        case 'shortFilm':
-            displayCharacters(character.filter(char => char.data.includes('shortFilms')));
+            displayCharacters(character.data.filter(char => char.films.length !=0));
             break;
         case 'parkAttraction':
-            displayCharacters(character.filter(char => char.data.includes('parkAttractions')));
+            displayCharacters(character.data.filter(char => char.parkAttractions.length !=0));
             break;
 }};
 
