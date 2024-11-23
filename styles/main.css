@@ -325,8 +325,7 @@ footer {
 
 
 #characters img {
-    width: 250px;
-    height: auto;
+    max-height: 200px;
     box-shadow: 0 0 30px #777;
     margin: .5rem;
 }
